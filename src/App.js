@@ -8,6 +8,7 @@ import AddTechModal from './components/techs/AddTechModal';
 import EditLogModal from './components/logs/EditLogModal';
 import Logs from './components/logs/Logs';
 import SearchBar from './components/layout/SearchBar';
+import TechListModal from './components/techs/TechListModal';
 
 // styles
 import 'materialize-css/dist/css/materialize.min.css';
@@ -27,6 +28,7 @@ const App = () => {
         <AddLogModal />
         <EditLogModal />
         <AddTechModal />
+        <TechListModal />
         <Logs />
       </div>
     </Fragment>
