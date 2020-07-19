@@ -17,7 +17,11 @@ const AddLogModal = () => {
   };
 
   return (
-    <div id="add-log-modal" className="modal" style={modalStyle}>
+    <div
+      id="add-log-modal"
+      className="modal modal-fixed-footer"
+      style={modalStyle}
+    >
       <div className="modal-content">
         <h4>Enter System Log</h4>
         <div className="row">
@@ -28,7 +32,7 @@ const AddLogModal = () => {
               value={message}
               onChange={(e) => setMessage(e.target.value)}
             />
-            <label htmlFor="messag" className="active">
+            <label htmlFor="message" className="active">
               Log Message
             </label>
           </div>
@@ -55,7 +59,7 @@ const AddLogModal = () => {
         <div className="row">
           <div className="input-field">
             <p>
-              <label htmlFor="">
+              <label>
                 <input
                   type="checkbox"
                   className="filled-in"
