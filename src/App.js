@@ -2,6 +2,7 @@ import React, { useEffect, Fragment } from 'react';
 
 // components
 import M from 'materialize-css/dist/js/materialize.min.js';
+import Logs from './components/logs/Logs';
 import SearchBar from './components/layout/SearchBar';
 
 // styles
@@ -17,6 +18,9 @@ const App = () => {
   return (
     <Fragment>
       <SearchBar />
+      <div className="container">
+        <Logs />
+      </div>
     </Fragment>
   );
 };
