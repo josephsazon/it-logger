@@ -22,11 +22,7 @@ const AddLogModal = () => {
   };
 
   return (
-    <div
-      id="add-log-modal"
-      className="modal modal-fixed-footer"
-      style={modalStyle}
-    >
+    <div id="add-log-modal" className="modal modal-fixed-footer">
       <div className="modal-content">
         <h4>Enter System Log</h4>
         <div className="row">
