@@ -1,5 +1,9 @@
 import { SET_LOADING, LOG } from './types';
 
+/**
+ * Add new log.
+ * @param {Object} log - Log to be added.
+ */
 export const addLog = (log) => async (dispatch) => {
   try {
     setLoading();
@@ -14,6 +18,26 @@ export const addLog = (log) => async (dispatch) => {
     const data = await res.json();
 
     dispatch({ type: LOG.ADD, payload: data });
+  } catch (err) {
+    dispatch({
+      type: LOG.ERROR,
+      payload: err.response.data,
+    });
+  }
+};
+
+/**
+ * Delete log.
+ */
+export const deleteLog = (id) => async (dispatch) => {
+  try {
+    setLoading();
+
+    await fetch(`/logs/${id}`, {
+      method: 'DELETE',
+    });
+
+    dispatch({ type: LOG.DELETE, payload: id });
   } catch (err) {
     dispatch({
       type: LOG.ERROR,
