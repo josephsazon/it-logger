@@ -30,16 +30,11 @@ export default (state = initialState, action) => {
         loading: false,
       };
     case LOG.GET:
+    case LOG.SEARCH:
       return {
         ...state,
         logs: action.payload,
         loading: false,
-      };
-    case LOG.ERROR:
-      console.error(action.payload);
-      return {
-        ...state,
-        error: action.payload,
       };
     case LOG.SET_CURRENT:
       return {
@@ -50,6 +45,12 @@ export default (state = initialState, action) => {
       return {
         ...state,
         current: null,
+      };
+    case LOG.ERROR:
+      console.error(action.payload);
+      return {
+        ...state,
+        error: action.payload,
       };
     case SET_LOADING:
       return {

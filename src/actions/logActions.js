@@ -94,6 +94,22 @@ export const getLogs = () => async (dispatch) => {
 };
 
 /**
+ * Search logs
+ */
+export const searchLogs = (text) => async (dispatch) => {
+  try {
+    setLoading();
+
+    const res = await fetch(`/logs?q=${text}`);
+    const data = await res.json();
+
+    dispatch({ type: LOG.SEARCH, payload: data });
+  } catch (err) {
+    dispatch({ type: LOG.ERROR, payload: err.response.data });
+  }
+};
+
+/**
  * Clear selected log.
  */
 export const clearCurrent = () => {
