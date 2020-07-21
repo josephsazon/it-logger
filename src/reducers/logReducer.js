@@ -9,6 +9,12 @@ const initialState = {
 
 export default (state = initialState, action) => {
   switch (action.type) {
+    case LOG.ADD:
+      return {
+        ...state,
+        logs: [...state.logs, action.payload],
+        loading: false,
+      };
     case LOG.GET:
       return {
         ...state,

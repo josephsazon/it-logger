@@ -1,18 +1,26 @@
 import { SET_LOADING, LOG } from './types';
 
-// export const getLogs = () => {
-//   return async (dispatch) => {
-//     setLoading();
+export const addLog = (log) => async (dispatch) => {
+  try {
+    setLoading();
 
-//     const res = await fetch('/logs');
-//     const data = res.json();
+    const res = await fetch('/logs', {
+      method: 'POST',
+      body: JSON.stringify(log),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+    const data = await res.json();
 
-//     dispatch({
-//       type: LOG.GET,
-//       payload: data,
-//     });
-//   };
-// };
+    dispatch({ type: LOG.ADD, payload: data });
+  } catch (err) {
+    dispatch({
+      type: LOG.ERROR,
+      payload: err.response.data,
+    });
+  }
+};
 
 /**
  * Get logs from server.

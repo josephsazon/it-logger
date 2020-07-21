@@ -20,6 +20,13 @@
       "attention": false,
       "date": "03-02-2019",
       "tech": "Sara Watson"
+    },
+    {
+      "message": "Changed network card on workstation 007",
+      "attention": false,
+      "tech": "Sam Smith",
+      "date": "2020-07-21T13:23:56.097Z",
+      "id": 4
     }
   ],
   "techs": [
