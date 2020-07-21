@@ -46,6 +46,31 @@ export const deleteLog = (id) => async (dispatch) => {
   }
 };
 
+export const updateLog = (log) => async (dispatch) => {
+  try {
+    setLoading();
+
+    const res = await fetch(`/logs/${log.id}`, {
+      method: 'PUT',
+      body: JSON.stringify(log),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+    const data = await res.json();
+
+    dispatch({
+      type: LOG.UPDATE,
+      payload: data,
+    });
+  } catch (err) {
+    dispatch({
+      type: LOG.ERROR,
+      payload: err.response.data,
+    });
+  }
+};
+
 /**
  * Get logs from server.
  */
@@ -66,6 +91,25 @@ export const getLogs = () => async (dispatch) => {
       payload: err.response.data,
     });
   }
+};
+
+/**
+ * Clear selected log.
+ */
+export const clearCurrent = () => {
+  return {
+    type: LOG.CLEAR_CURRENT,
+  };
+};
+
+/**
+ * Set current log.
+ */
+export const setCurrent = (log) => {
+  return {
+    type: LOG.SET_CURRENT,
+    payload: log,
+  };
 };
 
 /**

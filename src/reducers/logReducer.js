@@ -21,6 +21,14 @@ export default (state = initialState, action) => {
         logs: state.logs.filter((log) => log.id !== action.payload),
         loading: false,
       };
+    case LOG.UPDATE:
+      return {
+        ...state,
+        logs: state.logs.map((log) =>
+          log.id === action.payload.id ? action.payload : log
+        ),
+        loading: false,
+      };
     case LOG.GET:
       return {
         ...state,
@@ -33,7 +41,16 @@ export default (state = initialState, action) => {
         ...state,
         error: action.payload,
       };
-
+    case LOG.SET_CURRENT:
+      return {
+        ...state,
+        current: action.payload,
+      };
+    case LOG.CLEAR_CURRENT:
+      return {
+        ...state,
+        current: null,
+      };
     case SET_LOADING:
       return {
         ...state,
