@@ -29,6 +29,29 @@ export const addTech = (tech) => async (dispatch) => {
 };
 
 /**
+ * Delete technician.
+ */
+export const deleteTech = (id) => async (dispatch) => {
+  try {
+    setLoading();
+
+    await fetch(`/techs/${id}`, {
+      method: 'DELETE',
+    });
+
+    dispatch({
+      type: TECH.DELETE,
+      payload: id,
+    });
+  } catch (err) {
+    dispatch({
+      type: TECH.ERROR,
+      payload: err.response.statusText,
+    });
+  }
+};
+
+/**
  * Get technicians.
  */
 export const getTechs = () => async (dispatch) => {

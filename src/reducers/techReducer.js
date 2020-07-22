@@ -14,6 +14,12 @@ export default (state = initialState, action) => {
         techs: [...state.techs, action.payload],
         loading: false,
       };
+    case TECH.DELETE:
+      return {
+        ...state,
+        techs: state.techs.filter((tech) => tech.id !== action.payload),
+        loading: false,
+      };
     case TECH.GET:
       return {
         ...state,
