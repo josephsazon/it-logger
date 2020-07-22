@@ -3,7 +3,7 @@ import React from 'react';
 const AddBtn = () => {
   return (
     <div className="fixed-action-btn click-to-toggle">
-      <a className="btn-floating btn-large blue darken-2">
+      <a href="!#" className="btn-floating btn-large blue darken-2">
         <i className="large material-icons">mode_edit</i>
       </a>
       <ul>

@@ -8,10 +8,23 @@ const initialState = {
 
 export default (state = initialState, action) => {
   switch (action.type) {
+    case TECH.ADD:
+      return {
+        ...state,
+        techs: [...state.techs, action.payload],
+        loading: false,
+      };
     case TECH.GET:
       return {
         ...state,
         techs: action.payload,
+        loading: false,
+      };
+    case TECH.ERROR:
+      console.error(action.payload);
+      return {
+        ...state,
+        error: action.payload,
         loading: false,
       };
     case SET_LOADING:
