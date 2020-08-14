@@ -9,9 +9,3 @@ Tech used:
 * json-server
 
 ![Home page](https://github.com/josephsazon/it-logger/blob/master/demo/Home.PNG)
-
-![Edit Log Modal](https://github.com/josephsazon/it-logger/blob/master/demo/EditLog.PNG)
-
-![Technicians Modal](https://github.com/josephsazon/it-logger/blob/master/demo/Technicians.PNG)
-
-![Add Technician Modal](https://github.com/josephsazon/it-logger/blob/master/demo/AddTechnician.PNG)
